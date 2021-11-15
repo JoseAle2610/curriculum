@@ -58,3 +58,7 @@ li progress {
 .title.is-5, .title.is-6 {
   color: hsl(0, 0%, 35%);
 }
+
+.tag.is-primary{
+  color: #4a4a4a !important;
+}
