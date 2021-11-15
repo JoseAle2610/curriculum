@@ -1,0 +1,60 @@
+.list {
+  list-style-type:  disc;
+  list-style-position: outside;
+  margin-left: 2em;
+}
+.progress.is-small {
+    height: .3em;
+}
+.section {
+    padding: 1rem 1.5rem;
+}
+.has-background-primary {
+  background-image: linear-gradient(#29a8cb, #159583);
+}
+.item{
+  margin-bottom: 1em;
+}
+i.bi {
+  color: white;
+}
+li .title.is-3 {
+  margin-bottom: 0 !important;
+  margin-right: .5em;
+}
+
+.item .title.is-5 {
+  margin-bottom: .3em;
+  text-align: center;
+}
+.item hr {
+  margin-top: 0;
+}
+
+li progress {
+  margin-bottom: .4em;
+  margin-top: .2em;
+}
+/*#2cff88*/
+
+.progress::-webkit-progress-value {
+ background-color:#2cff88
+}
+.progress::-moz-progress-bar {
+ background-color:#2cff88
+}
+.progress::-ms-fill {
+ background-color:#2cff88;
+ border:none
+}
+.title.is-1 {
+  font-size: 4em;
+  color: #29a8cb;
+}
+.section .title.is-4{
+  color: #29a8cb;
+}
+
+.title.is-5, .title.is-6 {
+  color: hsl(0, 0%, 35%);
+}
