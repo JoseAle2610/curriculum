@@ -9,6 +9,9 @@
 .section {
     padding: 1rem 1.5rem;
 }
+.section ul.experiencia div{
+  margin-top: 1em;
+} 
 .has-background-primary {
   background-image: linear-gradient(#29a8cb, #159583);
 }
