@@ -65,3 +65,7 @@ li progress {
 .tag.is-primary{
   color: #4a4a4a !important;
 }
+
+.is-size-xl{
+  font-size: 5rem!important;
+}	
