@@ -15,7 +15,7 @@
     </head>
 
     <body class="has-background-light">
-
+        <button id="print" style="display: none;">print</button>
         <div class="container has-background-light" id='main'>
           <div class="columns is-fullheight">
             <aside class="column is-12-mobile is-5-tablet is-3-desktop has-background-primary my-6">
@@ -64,45 +64,41 @@
                     <hr>
                     <div class="p-4">
 
-                        <div class="columns is-mobile">
-                            <div class="column">
+                        <div class="columns is-mobile is-multiline">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
                                 <i class="devicon-nextjs-original is-size-xl"></i>
                                 <p class="has-text-centered">Nextjs</p>
                             </div>
-                            <div class="column">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
                                 <i class="devicon-java-plain is-size-xl"></i>
                                 <p class="has-text-centered">Java</p>
                             </div>
-                            <div class="column">                            
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">                            
                                 <i class="devicon-react-original is-size-xl"></i>
                                 <p class="has-text-centered">React</p>
                             </div>
-                        </div>
-                        <div class="columns is-mobile">
-                            <div class="column">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
                                 <i class="devicon-docker-plain is-size-xl"></i>
                                 <p class="has-text-centered">Docker</p>
                             </div>
-                            <div class="column">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
                                 <i class="devicon-postgresql-plain is-size-xl"></i>
                                 <p class="has-text-centered">Postgresql</p>
                             </div>
-                            <div class="column">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
                                 <i class="devicon-css3-plain is-size-xl"></i>
                                 <p class="has-text-centered">Css</p>
                             </div>
-                        </div>
-                        <div class="columns is-mobile">
-                            <div class="column">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
                                 <i class="devicon-spring-plain is-size-xl"></i>
                                 <p class="has-text-centered">Spring</p>
                             </div>
-                            <div class="column">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
                                 <i class="devicon-linux-plain is-size-xl"></i>
                                 <p class="has-text-centered">Linux</p>
                             </div>
-                            <div class="column">
-                                <img src="./MIcronautLogo.png" alt="MIcronautLogo" width="100%">
+                            <div class="column is-flex is-align-items-center is-flex-direction-column">
+                                <img src="./MIcronautLogo.png" alt="MIcronautLogo" style="width: 5em;">
                                 <p class="has-text-centered">Micronaut</p>
                             </div>
                         </div>
@@ -127,7 +123,7 @@
                 <section class="section">
                     <h2 class="title is-4">Perfil</h2>
                     <hr>
-                    <p>Soy José Suárez Desarrollador backend altamente motivado y apasionado por la tecnolgia, con experiencia en el desarrollo de soluciones empresariales y con gran entuciasmo de enfrentra nuevos desafios.</p>
+                    <p>Soy José Suárez Desarrollador backend altamente motivado y apasionado por la tecnología, con experiencia en el desarrollo de soluciones empresariales y con gran entusiasmo de enfrentar nuevos desafíos.</p>
                 </section>
                 <section class="section">
                     <h2 class="title is-4">Formación</h2>
@@ -222,7 +218,28 @@
         </div>
         <!-- Load external JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="scripts.js"></script>
+        <script>
+            const printBtn = document.getElementById("print")
+            printBtn.addEventListener("click", () => {
+                    var element = document.getElementById('main')
+                    var opt = {
+                        margin:       0.1,
+                        filename:     'myfile.pdf',
+                        image:        { type: 'jpeg', quality: 0.98 },
+                        html2canvas:  { scale: 2 },
+                        jsPDF:        { format: 'letter', orientation: 'portrait' }
+                    };
+
+                    // Configurar html2pdf para imprimir solo la sección deseada
+                    html2pdf().set(opt).from(element).toPdf().get("pdf").then(function (pdf) {
+                        const totalPages = pdf.internal.getNumberOfPages();
+                        pdf.deletePage(totalPages);
+                        pdf.save();
+                    });
+            })
+        </script>
     </body>
 
 </html>
